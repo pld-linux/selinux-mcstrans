@@ -1,22 +1,22 @@
 Summary:	MCS (Multiple Category System) SELinux service
 Summary(pl.UTF-8):	Usługa SELinuksa MCS (Multiple Category System)
 Name:		selinux-mcstrans
-Version:	2.7
+Version:	2.8
 Release:	1
 License:	GPL v2
 Group:		Daemons
 #Source0Download: https://github.com/SELinuxProject/selinux/wiki/Releases
-Source0:	https://raw.githubusercontent.com/wiki/SELinuxProject/selinux/files/releases/20170804/mcstrans-%{version}.tar.gz
-# Source0-md5:	edba0f72fdf7fdd1ad0a2c6d102e8cfa
+Source0:	https://raw.githubusercontent.com/wiki/SELinuxProject/selinux/files/releases/20180524/mcstrans-%{version}.tar.gz
+# Source0-md5:	3a0edb2a8b6a255199824abd58c0906c
 Patch0:		mcstrans-init.patch
 URL:		https://github.com/SELinuxProject/selinux/wiki
 BuildRequires:	gcc >= 6:3.4
 BuildRequires:	libcap-devel
-BuildRequires:	libselinux-devel >= 2.7
-BuildRequires:	libsepol-static >= 2.7
+BuildRequires:	libselinux-devel >= 2.8
+BuildRequires:	libsepol-static >= 2.8
 BuildRequires:	pcre-devel
 Requires(post,preun):	/sbin/chkconfig
-Requires:	libselinux >= 2.7
+Requires:	libselinux >= 2.8
 Requires:	rc-scripts
 Obsoletes:	policycoreutils-mcstrans < 2.7
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
@@ -64,9 +64,8 @@ rm -rf $RPM_BUILD_ROOT
 
 %{__make} install \
 	DESTDIR=$RPM_BUILD_ROOT \
-	LIBDIR=$RPM_BUILD_ROOT%{_libdir} \
-	SYSTEMDDIR=$RPM_BUILD_ROOT/lib/systemd \
-	LIBSEPOLA=%{_libdir}/libsepol.a
+	LIBDIR=%{_libdir} \
+	SYSTEMDDIR=/lib/systemd
 
 %clean
 rm -rf $RPM_BUILD_ROOT
