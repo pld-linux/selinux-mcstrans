@@ -1,22 +1,23 @@
 Summary:	MCS (Multiple Category System) SELinux service
 Summary(pl.UTF-8):	Usługa SELinuksa MCS (Multiple Category System)
 Name:		selinux-mcstrans
-Version:	3.1
+Version:	3.6
 Release:	1
 License:	GPL v2
 Group:		Daemons
 #Source0Download: https://github.com/SELinuxProject/selinux/wiki/Releases
-Source0:	https://github.com/SELinuxProject/selinux/releases/download/20200710/mcstrans-%{version}.tar.gz
-# Source0-md5:	18b7bf8193dd2360bc60f0e2639009ab
+Source0:	https://github.com/SELinuxProject/selinux/releases/download/%{version}/mcstrans-%{version}.tar.gz
+# Source0-md5:	8c4b2012d98b1df0d1ae5192546afa6f
 Patch0:		mcstrans-init.patch
 URL:		https://github.com/SELinuxProject/selinux/wiki
 BuildRequires:	gcc >= 6:3.4
 BuildRequires:	libcap-devel
-BuildRequires:	libselinux-devel >= 3.1
-BuildRequires:	libsepol-static >= 3.1
-BuildRequires:	pcre-devel
+BuildRequires:	libselinux-devel >= 3.6
+BuildRequires:	libsepol-static >= 3.6
+BuildRequires:	pcre2-8-devel
+BuildRequires:	pkgconfig
 Requires(post,preun):	/sbin/chkconfig
-Requires:	libselinux >= 3.1
+Requires:	libselinux >= 3.6
 Requires:	rc-scripts
 Obsoletes:	policycoreutils-mcstrans < 2.7
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
@@ -89,6 +90,3 @@ fi
 %{_mandir}/man5/setrans.conf.5*
 %{_mandir}/man8/mcs.8*
 %{_mandir}/man8/mcstransd.8*
-%lang(ru) %{_mandir}/ru/man5/setrans.conf.5*
-%lang(ru) %{_mandir}/ru/man8/mcs.8*
-%lang(ru) %{_mandir}/ru/man8/mcstransd.8*
