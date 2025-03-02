@@ -52,7 +52,7 @@ Ten pakiet zawiera usługę SELinuksa MCS (Multiple Category System).
 
 %prep
 %setup -q -n mcstrans-%{version}
-%patch0 -p1
+%patch -P0 -p1
 
 %build
 CFLAGS="%{rpmcflags} %{rpmcppflags} -Wall -W -Wundef -Wmissing-noreturn -Wmissing-format-attribute" \
