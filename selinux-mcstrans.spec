@@ -1,23 +1,24 @@
+%define	selinux_ver	3.8
 Summary:	MCS (Multiple Category System) SELinux service
 Summary(pl.UTF-8):	Usługa SELinuksa MCS (Multiple Category System)
 Name:		selinux-mcstrans
-Version:	3.7
+Version:	3.8
 Release:	1
 License:	GPL v2
 Group:		Daemons
 #Source0Download: https://github.com/SELinuxProject/selinux/wiki/Releases
 Source0:	https://github.com/SELinuxProject/selinux/releases/download/%{version}/mcstrans-%{version}.tar.gz
-# Source0-md5:	64e17a58f2d70c1acb1e4a5e507a289b
+# Source0-md5:	8d53d72080b9236468e70f64c9a4a7a2
 Patch0:		mcstrans-init.patch
 URL:		https://github.com/SELinuxProject/selinux/wiki
 BuildRequires:	gcc >= 6:3.4
 BuildRequires:	libcap-devel
-BuildRequires:	libselinux-devel >= 3.7
-BuildRequires:	libsepol-static >= 3.7
+BuildRequires:	libselinux-devel >= %{selinux_ver}
+BuildRequires:	libsepol-static >= %{selinux_ver}
 BuildRequires:	pcre2-8-devel
 BuildRequires:	pkgconfig
 Requires(post,preun):	/sbin/chkconfig
-Requires:	libselinux >= 3.7
+Requires:	libselinux >= %{selinux_ver}
 Requires:	rc-scripts
 Obsoletes:	policycoreutils-mcstrans < 2.7
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
