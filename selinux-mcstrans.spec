@@ -1,14 +1,14 @@
-%define	selinux_ver	3.10
+%define	selinux_ver	3.11
 Summary:	MCS (Multiple Category System) SELinux service
 Summary(pl.UTF-8):	Usługa SELinuksa MCS (Multiple Category System)
 Name:		selinux-mcstrans
-Version:	3.10
+Version:	3.11
 Release:	1
 License:	GPL v2
 Group:		Daemons
 #Source0Download: https://github.com/SELinuxProject/selinux/wiki/Releases
 Source0:	https://github.com/SELinuxProject/selinux/releases/download/%{version}/mcstrans-%{version}.tar.gz
-# Source0-md5:	3c5faba75f7393202884e64790419369
+# Source0-md5:	a91b2d40428c6c0b654b7098428eab0a
 Patch0:		mcstrans-init.patch
 URL:		https://github.com/SELinuxProject/selinux/wiki
 BuildRequires:	gcc >= 6:3.4
